@@ -1,0 +1,9 @@
+@import 'bootstrap';
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.custom-dropdown-menu {
+     left: -3% !important;
+}
