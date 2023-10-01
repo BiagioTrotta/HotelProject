@@ -1,5 +1,5 @@
 <x-main>
-   <!--  <div class="container">
+    <div class="container">
         <div class="row text-center">
             <h1>August Days Data</h1>
             @if(session('success'))
@@ -163,6 +163,7 @@
                         @endforeach
             </tbody>
         </table>
-    </div> -->
+    </div>
+
 
 </x-main>

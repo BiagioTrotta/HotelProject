@@ -9,40 +9,43 @@
     </div>
 
     <div class="container rounded-2 p-2 mx-auto my-4">
-        <form class="form-control bg-primary text-light text-center" wire:submit.prevent="gestisciIntervalli">
-            <div class="row">
+        <form class="row form-control bg-primary text-light text-center" wire:submit.prevent="gestisciIntervalli">
+
+
+                <div class="col-md-3 col-12 mb-3">
+                    <label for="room_id" class="fw-bold ms-2">Select N. Room:</label>
+                    <select wire:model.defer="room_id">
+                        @foreach ($data as $row)
+                        <option value="{{ $row->id }}">{{ $row->room->numero }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="col-md-3 col-12 mb-3">
+                    <label for="start_day" class="fw-bold ms-2">Init of interval:</label>
+                    <select wire:model.defer="start_day">
+                        @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
+                            @endfor
+                    </select>
+                </div>
+
+                <div class="col-md-3 col-12 mb-3">
+                    <label for="end_day" class="fw-bold ms-2">End of interval:</label>
+                    <select wire:model.defer="end_day">
+                        @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
+                            @endfor
+                    </select>
+                </div>
+
                 <div class="col-md-3 col-12 mb-3">
                     <label for="user_id" class="fw-bold ms-2">Select user:</label>
-                    <select wire:model="user_id">
+                    <select wire:model.defer="user_id">
                         @foreach ($users as $user)
                         <option value="{{ $user->id }}">#{{ $user->id }} - {{ $user->name }}</option>
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-3 col-12 mb-3">
-                    <label for="start_day" class="fw-bold ms-2">Init of interval:</label>
-                    <select wire:model="start_day">
-                        @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
-                            @endfor
-                    </select>
-                </div>
-                <div class="col-md-3 col-12 mb-3">
-                    <label for="end_day" class="fw-bold ms-2">End of interval:</label>
-                    <select wire:model="end_day">
-                        @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
-                            @endfor
-                    </select>
-                </div>
-                <div class="col-md-3 col-12 mb-3">
-                    <label for="room_id" class="fw-bold ms-2">Select N. Room:</label>
-                    <select wire:model="room_id">
-                        @foreach ($data as $row)
-                        <option value="{{ $row->id }}">{{ $row->room->numero }}</option>
-                        @endforeach
-                    </select>
-                    <button class="btn btn-outline-light mx-4 py-0" type="submit"><i class="fa-solid fa-circle-plus"></i></button>
-                </div>
-            </div>
+                <button class="btn btn-outline-light py-0" type="submit"><i class="fa-solid fa-circle-plus"></i></button>
 
         </form>
     </div>

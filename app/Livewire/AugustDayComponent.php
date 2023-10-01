@@ -12,20 +12,38 @@ class AugustDayComponent extends Component
     public $user_id;
     public $start_day;
     public $end_day;
-    public $days;
+    public $data;
+    public $users;
 
-    public function render()
+    protected function rules()
     {
-        $data = August_day::all();
-        $users = User::all();
+        return [
+            'room_id' => 'required',
+            'user_id' => 'required',
+            'start_day' => 'required',
+            'end_day' => 'required',
+        ];
+    }
 
-        return view('livewire.august-day-component', compact('data', 'users'));
+    public function gestisciIntervalli2()
+    {
+        $august = August_day::findOrFail($this->room_id);
+        $august->update([
+            'room_id' => $this->room_id,
+            'day_' . $this->start_day . '_user_id' => $this->user_id,
+            'day_' . $this->end_day . '_user_id' => $this->user_id,
+        ]);
+
+        session()->flash('success', 'Intervallo assegnato con successo.');
+
+        $this->loadDays();
     }
 
     public function gestisciIntervalli()
     {
-        $august = August_day::findOrFail($this->room_id);
         /* dd($this->user_id ,$this->start_day, $this->end_day, $this->room_id); */
+        $this->validate();
+        $august = August_day::findOrFail($this->room_id);
 
         for ($day = $this->start_day; $day <= $this->end_day; $day++) {
             $column = 'day_' . $day . '_user_id';
@@ -38,12 +56,26 @@ class AugustDayComponent extends Component
         session()->flash('success', 'Intervallo assegnato con successo.');
 
         $this->loadDays();
-        $this->ClearList();
+    }
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
+    public function mount()
+    {
+        $this->room_id = 1; // Inizializza con un valore predefinito o qualsiasi altro valore appropriato
+        $this->user_id = 1; // Inizializza con un valore predefinito o qualsiasi altro valore appropriato
+        $this->start_day = 1; // Inizializza con un valore predefinito o qualsiasi altro valore appropriato
+        $this->end_day = 1; // Inizializza con un valore predefinito o qualsiasi altro valore appropriato
+        $this->loadDays();
     }
 
     public function loadDays()
     {
-        $this->days = August_day::all();
+        $this->data = August_day::all();
+        $this->users = User::all();
     }
 
     public function ClearList()
@@ -52,6 +84,13 @@ class AugustDayComponent extends Component
      $this->user_id = '';
      $this->start_day = '';
      $this->end_day = '';
-     $this->days = '';
+    }
+
+    public function render()
+    {
+        $data = August_day::all();
+        $users = User::all();
+
+        return view('livewire.august-day-component');
     }
 }
