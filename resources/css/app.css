@@ -15,3 +15,15 @@ body {
     margin-top: 20px; /* Regola il margine superiore secondo le tue esigenze */
 }
 
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: white; /* Puoi impostare il colore di sfondo desiderato */
+    z-index: 1; /* Assicurati che le colonne fisse siano sopra le altre */
+}
+.sticky-cell {
+    position: sticky;
+    left: 0;
+    background-color: red; /* Puoi impostare il colore di sfondo desiderato */
+    z-index: 1; /* Assicurati che le celle fisse siano sopra le altre */
+}

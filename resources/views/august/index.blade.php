@@ -48,7 +48,7 @@
             <thead>
                 <tr>
                     <th>N.Room</th>
-                    @for ($day = 1; $day <= 31; $day++) <th>Day {{ $day }}</th>
+                    @for ($day = 1; $day <= 31; $day++) <th class="sticky-header">Day {{ $day }}</th>
                         @endfor
                         <th>N.Room</th>
                 </tr>
@@ -59,7 +59,7 @@
                 @endphp
                 @foreach ($data as $row)
                 <tr>
-                    <td class="text-center">{{ $row->room->numero }}</td>
+                    <td class="text-center sticky-cell">{{ $row->room->numero }}</td>
 
                     @for ($day = 1; $day <= 31; $day++) @if($row->{'day_'.$day.'_user_id'})
                         <td class="bg-success">
@@ -114,7 +114,7 @@
             <thead>
                 <tr>
                     <th>N.Room</th>
-                    @for ($day = 1; $day <= 31; $day++) <th>Day {{ $day }}</th>
+                    @for ($day = 1; $day <= 31; $day++) <th class="sticky-header">Day {{ $day }}</th>
                         @endfor
                 </tr>
             </thead>
@@ -122,7 +122,7 @@
             @foreach ($data as $row)
             @if ($loop->index < 12) @continue @endif
                 <tr>
-                    <td class="text-center">{{ $row->room->numero }}</td>
+                    <td class="text-center sticky-cell">{{ $row->room->numero }}</td>
 
                     @for ($day = 1; $day <= 31; $day++)
                     
