@@ -1,5 +1,5 @@
-<x-main>
-   <!--  <div class="container">
+<div>
+    <div class="container">
         <div class="row text-center">
             <h1>August Days Data</h1>
             @if(session('success'))
@@ -9,12 +9,11 @@
     </div>
 
     <div class="container rounded-2 p-2 mx-auto my-4">
-        <form class="form-control bg-primary text-light text-center" method="POST" action="{{ route('gestisci-intervalli') }}">
-            @csrf
+        <form class="form-control bg-primary text-light text-center" wire:submit.prevent="gestisciIntervalli">
             <div class="row">
                 <div class="col-md-3 col-12 mb-3">
                     <label for="user_id" class="fw-bold ms-2">Select user:</label>
-                    <select name="user_id" id="user_id">
+                    <select wire:model="user_id">
                         @foreach ($users as $user)
                         <option value="{{ $user->id }}">#{{ $user->id }} - {{ $user->name }}</option>
                         @endforeach
@@ -22,21 +21,21 @@
                 </div>
                 <div class="col-md-3 col-12 mb-3">
                     <label for="start_day" class="fw-bold ms-2">Init of interval:</label>
-                    <select name=" start_day" id="start_day">
+                    <select wire:model="start_day">
                         @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
                             @endfor
                     </select>
                 </div>
                 <div class="col-md-3 col-12 mb-3">
                     <label for="end_day" class="fw-bold ms-2">End of interval:</label>
-                    <select name=" end_day" id="end_day">
+                    <select wire:model="end_day">
                         @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
                             @endfor
                     </select>
                 </div>
                 <div class="col-md-3 col-12 mb-3">
                     <label for="room_id" class="fw-bold ms-2">Select N. Room:</label>
-                    <select name=" room_id" id="room_id">
+                    <select wire:model="room_id">
                         @foreach ($data as $row)
                         <option value="{{ $row->id }}">{{ $row->room->numero }}</option>
                         @endforeach
@@ -163,6 +162,5 @@
                         @endforeach
             </tbody>
         </table>
-    </div> -->
-
-</x-main>
+    </div>
+</div>
