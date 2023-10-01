@@ -7,3 +7,11 @@ body {
 .custom-dropdown-menu {
      left: -3% !important;
 }
+
+.table-scroll-xy {
+    overflow: scroll; /* Abilita sia la barra di scorrimento orizzontale che quella verticale */
+    max-width: 100%; /* Assicura che la tabella sia larga quanto il dispositivo */
+    max-height: 55vh; /* Imposta l'altezza massima desiderata */
+    margin-top: 20px; /* Regola il margine superiore secondo le tue esigenze */
+}
+
