@@ -40,4 +40,4 @@ Route::get('/accept/{id}', [ArticleController::class, 'acceptArticle'])->name('a
 Route::get('/august-days', [AugustDayController::class, 'index'])->name('august-days.index');
 Route::put('/august-days/{id}', [AugustDayController::class, 'update'])->name('august-days.update');
 Route::post('/gestisciIntervalli', [AugustDayController::class, 'gestisciIntervalli'])->name('gestisci-intervalli');
-Route::post('/august-days2', [AugustDayController::class, 'index2'])->name('august-days.index2');
+Route::get('/august-days2', [AugustDayController::class, 'index2'])->name('august-days.index2');

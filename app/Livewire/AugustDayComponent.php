@@ -25,6 +25,15 @@ class AugustDayComponent extends Component
         ];
     }
 
+    public function update()
+    {
+        dd($this->room_id,$this->user_id );
+        $august = August_day::findOrFail($this->room_id);
+
+        $august->update($this->user_id);
+        return redirect()->back()->with('success', 'Dati aggiornati con successooo.');
+    }
+
     public function gestisciIntervalli2()
     {
         $august = August_day::findOrFail($this->room_id);
