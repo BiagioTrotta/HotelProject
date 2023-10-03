@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->articles();
         $this->rooms();
         $this->roomsAugust();
+        $this->roomsSeptember();
     }
 
     private function users()
@@ -433,6 +434,118 @@ class DatabaseSeeder extends Seeder
             'room_id' => 34
         ]);
 
+    }
+
+    public function roomsSeptember()
+    {
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 1
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 2
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 3
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 4
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 5
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 6
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 7
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 8
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 9
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 10
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 11
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 12
+        ]);
+
+        //secondo Piano
+
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 13
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 14
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 15
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 16
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 17
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 18
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 19
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 20
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 21
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 22
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 23
+        ]);
+
+        //Terzo Piano
+
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 24
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 25
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 26
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 27
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 28
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 29
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 30
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 31
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 32
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 33
+        ]);
+        $roomSeptember = \App\Models\September_day::create([
+            'room_id' => 34
+        ]);
     }
 
 }

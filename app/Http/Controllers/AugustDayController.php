@@ -20,6 +20,11 @@ class AugustDayController extends Controller
         return view('august.index2');
     }
 
+    public function index3()
+    {
+        return view('august.index3');
+    }
+
     public function update(Request $request, $id)
     {
         $august = August_day::findOrFail($id);

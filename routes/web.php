@@ -8,16 +8,7 @@ use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AugustDayController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
 
 Route::get('/', [PageController::class, 'index'])->name('homepage');
 Route::get('/admin/create_user', [AdminController::class, 'index'])->name('admin.create-user')->middleware('is_admin');
@@ -41,3 +32,4 @@ Route::get('/august-days', [AugustDayController::class, 'index'])->name('august-
 Route::put('/august-days/{id}', [AugustDayController::class, 'update'])->name('august-days.update');
 Route::post('/gestisciIntervalli', [AugustDayController::class, 'gestisciIntervalli'])->name('gestisci-intervalli');
 Route::get('/august-days2', [AugustDayController::class, 'index2'])->name('august-days.index2');
+Route::get('/september-days', [AugustDayController::class, 'index3'])->name('september-days.index');
