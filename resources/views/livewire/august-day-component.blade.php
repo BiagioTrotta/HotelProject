@@ -2,14 +2,11 @@
     <div class="container">
         <div class="row text-center">
             <h1>August Days Data</h1>
-            @if(session('success'))
-            <div style="color: green;">{{ session('success') }}</div>
-            @endif
         </div>
     </div>
 
-    <div class="container rounded-2 sticky-custom mt-5">
-    <form class="form-control bg-primary text-light mt-5" wire:submit.prevent="gestisciIntervalli">
+    <div class="container rounded-2 sticky-custom mt-5 text-center">
+    <form class="form-control bg-custom text-light mt-5" wire:submit.prevent="gestisciIntervalli">
         <div class="row align-items-end">
             <div class="col-md-3 col-12 mb-3">
                 <label for="room_id" class="fw-bold ms-2">Select N. Room:</label>
@@ -53,6 +50,9 @@
             </div>
         </div>
     </form>
+    @if(session('success'))
+            <div style="color: green;">{{ session('success') }}</div>
+            @endif
   </div>
 
 

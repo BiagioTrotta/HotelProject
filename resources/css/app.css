@@ -32,5 +32,10 @@ body {
     position: sticky;
     top: 4rem; 
     z-index: 99;
-    
+}
+
+.bg-custom {
+    background: rgba(37, 105, 161, 0.8)!important;
+    padding-bottom: 0;
+    padding-top: 0;
 }
