@@ -25,7 +25,7 @@ class navbar extends Component
                     route('articles.create') => 'Add Articles',
                     route('admin.create-user') => 'Create-User',
                     route('admin.create-category') => 'Create-Category',
-                    route('august-days.index') => 'August',
+                    route('august-days.index2') => 'August2',
                 ];
         }
         else

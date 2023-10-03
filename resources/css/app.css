@@ -27,3 +27,10 @@ body {
     background-color: red; /* Puoi impostare il colore di sfondo desiderato */
     z-index: 1; /* Assicurati che le celle fisse siano sopra le altre */
 }
+
+.sticky-custom {
+    position: sticky;
+    top: 4rem; 
+    z-index: 99;
+    
+}

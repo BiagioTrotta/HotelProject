@@ -251,6 +251,74 @@ class DatabaseSeeder extends Seeder
             'descrizione' => 'lorem picsum',
         ]);
 
+        //Terzo piano
+        $room = \App\Models\Room::create([
+            'numero' => 301,
+            'tipo' => 'matrimoniale',
+            'prezzo' => 55,
+            'descrizione' => 'lorem picsum',
+        ]);
+        $room = \App\Models\Room::create([
+            'numero' => 302,
+            'tipo' => 'matrimoniale',
+            'prezzo' => 56,
+            'descrizione' => 'lorem picsum',
+        ]);
+        $room = \App\Models\Room::create([
+            'numero' => 303,
+            'tipo' => 'tripla',
+            'prezzo' => 57,
+            'descrizione' => 'lorem picsum',
+        ]);
+        $room = \App\Models\Room::create([
+            'numero' => 304,
+            'tipo' => 'tripla',
+            'prezzo' => 57,
+            'descrizione' => 'lorem picsum',
+        ]);
+        $room = \App\Models\Room::create([
+            'numero' => 305,
+            'tipo' => 'tripla',
+            'prezzo' => 57,
+            'descrizione' => 'lorem picsum',
+        ]);
+        $room = \App\Models\Room::create([
+            'numero' => 306,
+            'tipo' => 'matrimoniale',
+            'prezzo' => 55,
+            'descrizione' => 'lorem picsum',
+        ]);
+        $room = \App\Models\Room::create([
+            'numero' => 307,
+            'tipo' => 'matrimoniale',
+            'prezzo' => 56,
+            'descrizione' => 'lorem picsum',
+        ]);
+        $room = \App\Models\Room::create([
+            'numero' => 308,
+            'tipo' => 'tripla',
+            'prezzo' => 100,
+            'descrizione' => 'lorem picsum',
+        ]);
+        $room = \App\Models\Room::create([
+            'numero' => 309,
+            'tipo' => 'tripla',
+            'prezzo' => 80,
+            'descrizione' => 'lorem picsum',
+        ]);
+        $room = \App\Models\Room::create([
+            'numero' => 310,
+            'tipo' => 'tripla',
+            'prezzo' => 57,
+            'descrizione' => 'lorem picsum',
+        ]);
+
+        $room = \App\Models\Room::create([
+            'numero' => 311,
+            'tipo' => 'tripla',
+            'prezzo' => 80,
+            'descrizione' => 'lorem picsum',
+        ]);
     }
 
 
@@ -328,7 +396,43 @@ class DatabaseSeeder extends Seeder
         $roomAugust = \App\Models\August_day::create([
             'room_id' => 23
         ]);
-    }
 
+          //Terzo Piano
+
+          $roomAugust = \App\Models\August_day::create([
+            'room_id' => 24
+        ]);
+        $roomAugust = \App\Models\August_day::create([
+            'room_id' => 25
+        ]);
+        $roomAugust = \App\Models\August_day::create([
+            'room_id' => 26
+        ]);
+        $roomAugust = \App\Models\August_day::create([
+            'room_id' => 27
+        ]);
+        $roomAugust = \App\Models\August_day::create([
+            'room_id' => 28
+        ]);
+        $roomAugust = \App\Models\August_day::create([
+            'room_id' => 29
+        ]);
+        $roomAugust = \App\Models\August_day::create([
+            'room_id' => 30
+        ]);
+        $roomAugust = \App\Models\August_day::create([
+            'room_id' => 31
+        ]);
+        $roomAugust = \App\Models\August_day::create([
+            'room_id' => 32
+        ]);
+        $roomAugust = \App\Models\August_day::create([
+            'room_id' => 33
+        ]);
+        $roomAugust = \App\Models\August_day::create([
+            'room_id' => 34
+        ]);
+
+    }
 
 }

@@ -15,24 +15,45 @@ class AugustDayComponent extends Component
     public $data;
     public $users;
 
+    public $day;
+
     protected function rules()
     {
         return [
             'room_id' => 'required',
-            'user_id' => 'required',
+            /* 'user_id' => 'required', */
             'start_day' => 'required',
             'end_day' => 'required',
         ];
     }
 
-    public function update()
-    {
+    public function update2()
+    {   
         dd($this->room_id,$this->user_id );
         $august = August_day::findOrFail($this->room_id);
 
         $august->update($this->user_id);
         return redirect()->back()->with('success', 'Dati aggiornati con successooo.');
     }
+
+    public function update()
+{
+    dd($this->room_id, $this->user_id, $this->day);
+
+    // Trova il record August_day specifico in base a room_id
+    $august = August_day::findOrFail($this->room_id);
+
+    // Costruisci il nome della colonna del giorno specifico
+    $column = 'day_' . $this->day . '_user_id';
+
+    // Aggiorna l'ID utente nel record
+    $august->$column = $this->user_id;
+    $august->save();
+
+    $this->loadDays();
+}
+
+    
 
     public function gestisciIntervalli2()
     {
@@ -74,8 +95,8 @@ class AugustDayComponent extends Component
 
     public function mount()
     {
-        $this->room_id = 1; // Inizializza con un valore predefinito o qualsiasi altro valore appropriato
-        $this->user_id = 1; // Inizializza con un valore predefinito o qualsiasi altro valore appropriato
+        $this->room_id = 1;  // Inizializza con un valore predefinito o qualsiasi altro valore appropriato
+        $this->user_id = null;  // Inizializza con un valore predefinito o qualsiasi altro valore appropriato
         $this->start_day = 1; // Inizializza con un valore predefinito o qualsiasi altro valore appropriato
         $this->end_day = 1; // Inizializza con un valore predefinito o qualsiasi altro valore appropriato
         $this->loadDays();
