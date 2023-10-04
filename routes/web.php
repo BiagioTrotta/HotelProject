@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AugustDayController;
+use App\Http\Controllers\MonthlyDayController;
 
 
 
@@ -33,3 +34,5 @@ Route::put('/august-days/{id}', [AugustDayController::class, 'update'])->name('a
 Route::post('/gestisciIntervalli', [AugustDayController::class, 'gestisciIntervalli'])->name('gestisci-intervalli');
 Route::get('/august-days2', [AugustDayController::class, 'index2'])->name('august-days.index2');
 Route::get('/september-days', [AugustDayController::class, 'index3'])->name('september-days.index');
+
+Route::resource('monthly_days', MonthlyDayController::class);

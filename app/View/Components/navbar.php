@@ -26,6 +26,7 @@ class navbar extends Component
                     route('admin.create-user') => 'Create-User',
                     route('admin.create-category') => 'Create-Category',
                     route('august-days.index2') => 'August2',
+                    route('september-days.index') => 'September',
                 ];
         }
         else
@@ -33,6 +34,8 @@ class navbar extends Component
             $this->nav =
                 [
                     route('articles.index') => 'Articles',
+                    route('august-days.index2') => 'August2',
+                    route('september-days.index') => 'September',
                 ];
         }
 
