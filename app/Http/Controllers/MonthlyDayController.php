@@ -26,9 +26,9 @@ class MonthlyDayController extends Controller
             12 => 'Dicembre',
         ];
        $monthlyDays = MonthlyDay::all();
-        $desiredMonth = 1; // Gennaio (puoi cambiare il mese desiderato)
+       /*  $desiredMonth = 1; // Gennaio (puoi cambiare il mese desiderato)
 
-        $monthlyDays = MonthlyDay::where('month', $desiredMonth)->get(); 
+        $monthlyDays = MonthlyDay::where('month', $desiredMonth)->get();  */
         
         $users = User::all();
         $rooms = Room::all();
@@ -67,5 +67,12 @@ class MonthlyDayController extends Controller
         $monthlyDay->update($request->all());
 
         return redirect()->back()->with('success', 'Dati aggiornati con successo.');
+    }
+
+    public function destroy($id)
+    {
+        $monthlyDay = MonthlyDay::find($id);
+        $monthlyDay->delete();
+        return redirect()->back();
     }
 }

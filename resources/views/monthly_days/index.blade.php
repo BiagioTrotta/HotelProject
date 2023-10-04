@@ -59,6 +59,11 @@
                 <td>{{ $monthlyDay->day }}</td>
                 <td>
                     <a href="{{ route('monthly_days.edit', $monthlyDay->id) }}">Modifica</a>
+                    <form action="route('monthly_days.destroy', $monthlyDay->id)" method="POST">
+                    @csrf
+                    @method('DELETE')
+                      <button type="submit">Delete</button>
+                    </form>
                 </td>
             </tr>
         @endforeach
