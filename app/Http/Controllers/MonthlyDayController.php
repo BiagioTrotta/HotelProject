@@ -12,24 +12,25 @@ class MonthlyDayController extends Controller
     public function index()
     {
         $months = [
-            1 => 'Gennaio',
-            2 => 'Febbraio',
-            3 => 'Marzo',
-            4 => 'Aprile',
-            5 => 'Maggio',
-            6 => 'Giugno',
-            7 => 'Luglio',
-            8 => 'Agosto',
-            9 => 'Settembre',
-            10 => 'Ottobre',
-            11 => 'Novembre',
-            12 => 'Dicembre',
+            1 => 'January',
+            2 => 'February',
+            3 => 'March',
+            4 => 'April',
+            5 => 'May',
+            6 => 'June',
+            7 => 'July',
+            8 => 'August',
+            9 => 'September',
+            10 => 'October',
+            11 => 'November',
+            12 => 'December',
         ];
+
        $monthlyDays = MonthlyDay::all();
        /*  $desiredMonth = 1; // Gennaio (puoi cambiare il mese desiderato)
 
         $monthlyDays = MonthlyDay::where('month', $desiredMonth)->get();  */
-        
+
         $users = User::all();
         $rooms = Room::all();
         return view('monthly_days.index', compact('monthlyDays', 'months', 'users', 'rooms'));
