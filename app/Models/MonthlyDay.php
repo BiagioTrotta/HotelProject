@@ -15,7 +15,8 @@ class MonthlyDay extends Model
     protected $fillable = [
         'room_id',
         'month',
-        'day',
+        'checkin',
+        'checkout',
         'user_id',
     ];
 

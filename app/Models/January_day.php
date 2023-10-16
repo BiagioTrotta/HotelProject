@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\Room;
-use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class September_day extends Model
+class January_day extends Model
 {
     use HasFactory;
 
@@ -15,7 +13,7 @@ class September_day extends Model
 
     public function __construct()
     {
-        for ($day = 1; $day <= 30; $day++) {
+        for ($day = 1; $day <= 31; $day++) {
             $this->fillable[] = 'day_' . $day . '_user_id';
         }
     }
@@ -51,7 +49,8 @@ class September_day extends Model
         ->orWhere('day_27_user_id')
         ->orWhere('day_28_user_id')
         ->orWhere('day_29_user_id')
-        ->orWhere('day_30_user_id');
+        ->orWhere('day_30_user_id')
+        ->orWhere('day_31_user_id');
     }
 
     public function room()

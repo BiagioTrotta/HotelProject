@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\August_day;
+use App\Models\January_day;
+use App\Models\September_day;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,15 +17,21 @@ class AugustDayController extends Controller
         return view('august.index', compact('data', 'users'));
     }
 
+    public function index1()
+    {
+        return view('months.january');
+    }
+
     public function index2()
     {
-        return view('august.index2');
+        return view('months.august');
     }
 
     public function index3()
     {
-        return view('august.index3');
+        return view('months.september');
     }
+
 
     public function update(Request $request, $id)
     {
@@ -32,6 +40,23 @@ class AugustDayController extends Controller
         $august->update($request->all());
         return redirect()->back()->with('success', 'Dati aggiornati con successo.');
     }
+
+    public function update1(Request $request, $id)
+    {
+        $january = January_day::findOrFail($id);
+
+        $january->update($request->all());
+        return redirect()->back()->with('success', 'Dati aggiornati con successo.');
+    }
+
+    public function update2(Request $request, $id)
+    {
+        $september = September_day::findOrFail($id);
+
+        $september->update($request->all());
+        return redirect()->back()->with('success', 'Dati aggiornati con successo.');
+    }
+
 
     public function gestisciIntervalli(Request $request)
     {

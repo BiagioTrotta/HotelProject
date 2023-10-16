@@ -34,8 +34,9 @@ class navbar extends Component
             $this->nav =
                 [
                     route('articles.index') => 'Articles',
-                    route('august-days.index2') => 'August2',
-                    route('september-days.index') => 'September',
+                    route('months.august') => 'August',
+                    route('months.september') => 'September',
+                    route('months.january') => 'January',
                 ];
         }
 

@@ -31,8 +31,11 @@ Route::get('/accept/{id}', [ArticleController::class, 'acceptArticle'])->name('a
 
 Route::get('/august-days', [AugustDayController::class, 'index'])->name('august-days.index');
 Route::put('/august-days/{id}', [AugustDayController::class, 'update'])->name('august-days.update');
+Route::put('/january-days/{id}', [AugustDayController::class, 'update1'])->name('january-days.update');
+Route::put('/september-days/{id}', [AugustDayController::class, 'update2'])->name('september-days.update');
 Route::post('/gestisciIntervalli', [AugustDayController::class, 'gestisciIntervalli'])->name('gestisci-intervalli');
-Route::get('/august-days2', [AugustDayController::class, 'index2'])->name('august-days.index2');
-Route::get('/september-days', [AugustDayController::class, 'index3'])->name('september-days.index');
+Route::get('/january', [AugustDayController::class, 'index1'])->name('months.january');
+Route::get('/august', [AugustDayController::class, 'index2'])->name('months.august');
+Route::get('/september', [AugustDayController::class, 'index3'])->name('months.september');
 
 Route::resource('monthly_days', MonthlyDayController::class);

@@ -26,7 +26,8 @@ class MonthlyDayController extends Controller
             12 => 'December',
         ];
 
-       $monthlyDays = MonthlyDay::all();
+       /* $monthlyDays = MonthlyDay::all(); */
+          $monthlyDays = MonthlyDay::orderBy('month')->orderBy('checkin')->orderBy('room_id')->get();
        /*  $desiredMonth = 1; // Gennaio (puoi cambiare il mese desiderato)
 
         $monthlyDays = MonthlyDay::where('month', $desiredMonth)->get();  */
@@ -43,17 +44,17 @@ class MonthlyDayController extends Controller
     }
 
     public function store(Request $request)
-    {
-        /* dd($request->all()); */
-        $record = MonthlyDay::create([
-            'room_id' => $request->room_id,
-            'user_id' => $request->user_id,
-            'month' => $request->month,
-            'day' => $request->day,
+{
+    
+    $record = MonthlyDay::create([
+        'room_id' => $request->room_id,
+        'user_id' => $request->user_id,
+        'month' => $request->month,
+        'checkin' => $request->input('day_start', 1) ?? now(), // Usa la data e ora corrente come valore predefinito se checkin non è specificato
+    ]);
+    return redirect()->back();
+}
 
-        ]);
-        return redirect()->back();
-    }
 
     public function edit($id)
     {
