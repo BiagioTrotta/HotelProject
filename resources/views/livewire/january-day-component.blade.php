@@ -100,7 +100,7 @@
                                         <input type="number" name="day_{{ $day }}_user_id" value="{{ $row->{'day_'.$day} }}" placeholder="{{ $row->{'day_'.$day.'_user_id'} }}" style="margin-right: 10px; width: 60px; padding: 5px;">
                                         <button class="btn btn-outline-dark" type="submit" style="margin-right: 10px;"><i class="fa-solid fa-lock-open"></i></button>
                                     </div>
-                                    <span class="fw-bold text-uppercase mx-2">Not Client</span>
+                                    <span class="fw-bold text-uppercase mx-2">Nessun Cliente</span>
                                 </form>
                             </td>
                             @endif
@@ -159,7 +159,7 @@
                                         <input type="number" name="day_{{ $day }}_user_id" value="{{ $row->{'day_'.$day} }}" placeholder="{{ $row->{'day_'.$day.'_user_id'} }}" style="margin-right: 10px; width: 60px; padding: 5px;">
                                         <button class="btn btn-outline-dark" type="submit" style="margin-right: 10px;"><i class="fa-solid fa-lock-open"></i></button>
                                     </div>
-                                    <span class="fw-bold text-uppercase mx-2">Not Client</span>
+                                    <span class="fw-bold text-uppercase mx-2">Nessun Cliente</span>
                                 </form>
                             </td>
                             @endif
@@ -217,7 +217,7 @@
                                         <input type="number" name="day_{{ $day }}_user_id" value="{{ $row->{'day_'.$day} }}" placeholder="{{ $row->{'day_'.$day.'_user_id'} }}" style="margin-right: 10px; width: 60px; padding: 5px;">
                                         <button class="btn btn-outline-dark" type="submit" style="margin-right: 10px;"><i class="fa-solid fa-lock-open"></i></button>
                                     </div>
-                                    <span class="fw-bold text-uppercase mx-2">Not Client</span>
+                                    <span class="fw-bold text-uppercase mx-2">Nessun Cliente</span>
                                 </form>
                             </td>
                             @endif
