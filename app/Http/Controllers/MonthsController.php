@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\August_day;
+use Illuminate\Http\Request;
 use App\Models\January_day;
+use App\Models\August_day;
 use App\Models\September_day;
 use App\Models\User;
-use Illuminate\Http\Request;
 
-class AugustDayController extends Controller
+class MonthsController extends Controller
 {
     public function index()
     {
@@ -93,5 +93,4 @@ class AugustDayController extends Controller
 
         return redirect()->back()->with('success', 'Intervallo assegnato con successo.');
     }
-
 }
