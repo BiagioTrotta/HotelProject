@@ -385,6 +385,12 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        foreach ($roomIds as $roomId) {
+            \App\Models\February_day::create([
+                'room_id' => $roomId
+            ]);
+        }
+
     }
 
 }

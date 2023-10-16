@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\January_day;
+use App\Models\February_day;
 use App\Models\August_day;
 use App\Models\September_day;
 use App\Models\User;
@@ -24,22 +25,19 @@ class MonthsController extends Controller
 
     public function index2()
     {
-        return view('months.august');
+        return view('months.february');
     }
 
     public function index3()
     {
+        return view('months.august');
+    }
+
+    public function index4()
+    {
         return view('months.september');
     }
 
-
-    public function update(Request $request, $id)
-    {
-        $august = August_day::findOrFail($id);
-
-        $august->update($request->all());
-        return redirect()->back()->with('success', 'Dati aggiornati con successo.');
-    }
 
     public function update1(Request $request, $id)
     {
@@ -51,11 +49,32 @@ class MonthsController extends Controller
 
     public function update2(Request $request, $id)
     {
+        $february = February_day::findOrFail($id);
+
+        $february->update($request->all());
+        return redirect()->back()->with('success', 'Dati aggiornati con successo.');
+    }
+
+    public function update3(Request $request, $id)
+    {
+        $august = August_day::findOrFail($id);
+
+        $august->update($request->all());
+        return redirect()->back()->with('success', 'Dati aggiornati con successo.');
+    }
+
+
+    public function update4(Request $request, $id)
+    {
         $september = September_day::findOrFail($id);
 
         $september->update($request->all());
         return redirect()->back()->with('success', 'Dati aggiornati con successo.');
     }
+
+   
+
+    
 
 
     public function gestisciIntervalli(Request $request)
