@@ -384,6 +384,11 @@ class DatabaseSeeder extends Seeder
             ]);
         }
         
+        foreach ($roomIds as $roomId) {
+            \App\Models\April_day::create([
+                'room_id' => $roomId
+            ]);
+        }
         
         foreach ($roomIds as $roomId) {
             \App\Models\August_day::create([
@@ -396,6 +401,7 @@ class DatabaseSeeder extends Seeder
                 'room_id' => $roomId
             ]);
         }
+
 
     }
 

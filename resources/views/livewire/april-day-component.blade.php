@@ -1,7 +1,7 @@
 <div>
     <div class="container">
         <div class="row text-center">
-            <h1>February Days Data</h1>
+            <h1>April Days Data</h1>
         </div>
     </div>
     <!-- Navbar camere -->
@@ -20,7 +20,7 @@
                 <div class="col-md-2 col-12 mb-3">
                     <label for="start_day" class="fw-bold ms-2">Init of interval:</label>
                     <select wire:model.defer="start_day" class="form-select">
-                        @for ($day = 1; $day <= 28; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
+                        @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
                             @endfor
                     </select>
                 </div>
@@ -28,7 +28,7 @@
                 <div class="col-md-2 col-12 mb-3">
                     <label for="end_day" class="fw-bold ms-2">End of interval:</label>
                     <select wire:model.defer="end_day" class="form-select">
-                        @for ($day = 1; $day <= 28; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
+                        @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
                             @endfor
                     </select>
                 </div>
@@ -80,7 +80,7 @@
 
                         @for ($day = 1; $day <= 31; $day++) @if($row->{'day_'.$day.'_user_id'})
                             <td class="bg-success">
-                                <form method="POST" action="{{ route('february-days.update', $row->id) }}">
+                                <form method="POST" action="{{ route('april-days.update', $row->id) }}">
                                     @csrf
                                     @method('PUT')
                                     <div style="display: flex; align-items: center; justify-content: center;">
@@ -93,7 +93,7 @@
 
                             @else
                             <td class="bg-light">
-                                <form method="POST" action="{{ route('february-days.update', $row->id) }}">
+                                <form method="POST" action="{{ route('april-days.update', $row->id) }}">
                                     @csrf
                                     @method('PUT')
                                     <div style="display: flex; align-items: center;">
@@ -140,7 +140,7 @@
 
                         @for ($day = 1; $day <= 31; $day++) @if($row->{'day_'.$day.'_user_id'})
                             <td class="bg-success">
-                                <form method="POST" action="{{ route('february-days.update', $row->id) }}">
+                                <form method="POST" action="{{ route('april-days.update', $row->id) }}">
                                     @csrf
                                     @method('PUT')
                                     <div style="display: flex; align-items: center; justify-content: center;">
@@ -152,7 +152,7 @@
                             </td>
                             @else
                             <td class="bg-light">
-                                <form method="POST" action="{{ route('february-days.update', $row->id) }}">
+                                <form method="POST" action="{{ route('april-days.update', $row->id) }}">
                                     @csrf
                                     @method('PUT')
                                     <div style="display: flex; align-items: center;">
@@ -198,7 +198,7 @@
 
                         @for ($day = 1; $day <= 31; $day++) @if($row->{'day_'.$day.'_user_id'})
                             <td class="bg-success">
-                                <form method="POST" action="{{ route('february-days.update', $row->id) }}">
+                                <form method="POST" action="{{ route('april-days.update', $row->id) }}">
                                     @csrf
                                     @method('PUT')
                                     <div style="display: flex; align-items: center; justify-content: center;">
@@ -210,7 +210,7 @@
                             </td>
                             @else
                             <td class="bg-light">
-                                <form method="POST" action="{{ route('february-days.update', $row->id) }}">
+                                <form method="POST" action="{{ route('april-days.update', $row->id) }}">
                                     @csrf
                                     @method('PUT')
                                     <div style="display: flex; align-items: center;">
