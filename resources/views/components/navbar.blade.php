@@ -9,6 +9,16 @@
                 @foreach($nav as $key => $navitem)
                 <a class="nav-link @if($loop->first)active @endif" href="{{$key}}">{{$navitem}}</a>
                 @endforeach
+              <div class="dropdown">
+                <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 Months
+                 </a>
+                 <ul class="dropdown-menu">
+                     @foreach($nav2 as $key => $navitem2)
+                      <li><a class="dropdown-item" href="{{$key}}">{{$navitem2}}</a></li>
+                      @endforeach
+                 </ul>
+             </div>
             </div>
             <div class="navbar-nav ms-auto text-center">
                 @guest

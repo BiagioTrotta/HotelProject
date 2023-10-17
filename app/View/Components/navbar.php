@@ -9,6 +9,7 @@ use Illuminate\View\Component;
 class navbar extends Component
 {
     public $nav;
+    public $nav2;
 
     public function __construct()
     {
@@ -25,8 +26,15 @@ class navbar extends Component
                     route('articles.create') => 'Add Articles',
                     route('admin.create-user') => 'Create-User',
                     route('admin.create-category') => 'Create-Category',
-                    route('august-days.index2') => 'August2',
-                    route('september-days.index') => 'September',
+                   
+                ];
+                $this->nav2 = 
+                [
+                    route('months.january') => 'January',
+                    route('months.february') => 'February',
+                    route('months.march') => 'March',
+                    route('months.august') => 'August',
+                    route('months.september') => 'September',
                 ];
         }
         else
@@ -34,11 +42,20 @@ class navbar extends Component
             $this->nav =
                 [
                     route('articles.index') => 'Articles',
-                    route('months.august') => 'August',
-                    route('months.september') => 'September',
                     route('months.january') => 'January',
                     route('months.february') => 'February',
+                    route('months.march') => 'March',
+                    route('months.august') => 'August',
+                    route('months.september') => 'September',
                     
+                ];
+                $this->nav2 = 
+                [
+                    route('months.january') => 'January',
+                    route('months.february') => 'February',
+                    route('months.march') => 'March',
+                    route('months.august') => 'August',
+                    route('months.september') => 'September',
                 ];
         }
 

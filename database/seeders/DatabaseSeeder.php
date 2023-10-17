@@ -371,22 +371,28 @@ class DatabaseSeeder extends Seeder
                 'room_id' => $roomId
             ]);
         }
-
+        
         foreach ($roomIds as $roomId) {
-            \App\Models\September_day::create([
+            \App\Models\February_day::create([
                 'room_id' => $roomId
             ]);
         }
 
-
+        foreach ($roomIds as $roomId) {
+            \App\Models\March_day::create([
+                'room_id' => $roomId
+            ]);
+        }
+        
+        
         foreach ($roomIds as $roomId) {
             \App\Models\August_day::create([
                 'room_id' => $roomId
             ]);
         }
-
+        
         foreach ($roomIds as $roomId) {
-            \App\Models\February_day::create([
+            \App\Models\September_day::create([
                 'room_id' => $roomId
             ]);
         }

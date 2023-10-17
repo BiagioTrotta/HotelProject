@@ -1,7 +1,7 @@
 <div>
     <div class="container">
         <div class="row text-center">
-            <h1>August Days Data</h1>
+            <h1>March Days Data</h1>
         </div>
     </div>
     <!-- Navbar camere -->
@@ -80,7 +80,7 @@
 
                         @for ($day = 1; $day <= 31; $day++) @if($row->{'day_'.$day.'_user_id'})
                             <td class="bg-success">
-                                <form method="POST" action="{{ route('august-days.update', $row->id) }}">
+                                <form method="POST" action="{{ route('march-days.update', $row->id) }}">
                                     @csrf
                                     @method('PUT')
                                     <div style="display: flex; align-items: center; justify-content: center;">
@@ -93,14 +93,14 @@
 
                             @else
                             <td class="bg-light">
-                                <form method="POST" action="{{ route('august-days.update', $row->id) }}">
+                                <form method="POST" action="{{ route('march-days.update', $row->id) }}">
                                     @csrf
                                     @method('PUT')
                                     <div style="display: flex; align-items: center;">
                                         <input type="number" name="day_{{ $day }}_user_id" value="{{ $row->{'day_'.$day} }}" placeholder="{{ $row->{'day_'.$day.'_user_id'} }}" style="margin-right: 10px; width: 60px; padding: 5px;">
                                         <button class="btn btn-outline-dark" type="submit" style="margin-right: 10px;"><i class="fa-solid fa-lock-open"></i></button>
                                     </div>
-                                    <span class="fw-bold text-uppercase mx-2"><i class="fa-solid fa-user-xmark"></i></span>
+                                    <span class="fw-bold text-uppercase mx-2">Nessun Cliente</span>
                                 </form>
                             </td>
                             @endif
@@ -140,7 +140,7 @@
 
                         @for ($day = 1; $day <= 31; $day++) @if($row->{'day_'.$day.'_user_id'})
                             <td class="bg-success">
-                                <form method="POST" action="{{ route('august-days.update', $row->id) }}">
+                                <form method="POST" action="{{ route('march-days.update', $row->id) }}">
                                     @csrf
                                     @method('PUT')
                                     <div style="display: flex; align-items: center; justify-content: center;">
@@ -152,14 +152,14 @@
                             </td>
                             @else
                             <td class="bg-light">
-                                <form method="POST" action="{{ route('august-days.update', $row->id) }}">
+                                <form method="POST" action="{{ route('march-days.update', $row->id) }}">
                                     @csrf
                                     @method('PUT')
                                     <div style="display: flex; align-items: center;">
                                         <input type="number" name="day_{{ $day }}_user_id" value="{{ $row->{'day_'.$day} }}" placeholder="{{ $row->{'day_'.$day.'_user_id'} }}" style="margin-right: 10px; width: 60px; padding: 5px;">
                                         <button class="btn btn-outline-dark" type="submit" style="margin-right: 10px;"><i class="fa-solid fa-lock-open"></i></button>
                                     </div>
-                                    <span class="fw-bold text-uppercase mx-2"><i class="fa-solid fa-user-xmark"></i></span>
+                                    <span class="fw-bold text-uppercase mx-2">Nessun Cliente</span>
                                 </form>
                             </td>
                             @endif
@@ -198,7 +198,7 @@
 
                         @for ($day = 1; $day <= 31; $day++) @if($row->{'day_'.$day.'_user_id'})
                             <td class="bg-success">
-                                <form method="POST" action="{{ route('august-days.update', $row->id) }}">
+                                <form method="POST" action="{{ route('march-days.update', $row->id) }}">
                                     @csrf
                                     @method('PUT')
                                     <div style="display: flex; align-items: center; justify-content: center;">
@@ -210,14 +210,14 @@
                             </td>
                             @else
                             <td class="bg-light">
-                                <form method="POST" action="{{ route('august-days.update', $row->id) }}">
+                                <form method="POST" action="{{ route('march-days.update', $row->id) }}">
                                     @csrf
                                     @method('PUT')
                                     <div style="display: flex; align-items: center;">
                                         <input type="number" name="day_{{ $day }}_user_id" value="{{ $row->{'day_'.$day} }}" placeholder="{{ $row->{'day_'.$day.'_user_id'} }}" style="margin-right: 10px; width: 60px; padding: 5px;">
                                         <button class="btn btn-outline-dark" type="submit" style="margin-right: 10px;"><i class="fa-solid fa-lock-open"></i></button>
                                     </div>
-                                    <span class="fw-bold text-uppercase mx-2"><i class="fa-solid fa-user-xmark"></i></span>
+                                    <span class="fw-bold text-uppercase mx-2">Nessun Cliente</span>
                                 </form>
                             </td>
                             @endif

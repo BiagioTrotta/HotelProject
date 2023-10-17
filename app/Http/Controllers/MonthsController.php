@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\January_day;
 use App\Models\February_day;
 use App\Models\August_day;
+use App\Models\March_day;
 use App\Models\September_day;
 use App\Models\User;
 
@@ -30,13 +31,20 @@ class MonthsController extends Controller
 
     public function index3()
     {
+        return view('months.march');
+    }
+
+    public function index8()
+    {
         return view('months.august');
     }
 
-    public function index4()
+    public function index9()
     {
         return view('months.september');
     }
+
+    
 
 
     public function update1(Request $request, $id)
@@ -57,6 +65,14 @@ class MonthsController extends Controller
 
     public function update3(Request $request, $id)
     {
+        $march = March_day::findOrFail($id);
+
+        $march->update($request->all());
+        return redirect()->back()->with('success', 'Dati aggiornati con successo.');
+    }
+
+    public function update8(Request $request, $id)
+    {
         $august = August_day::findOrFail($id);
 
         $august->update($request->all());
@@ -64,7 +80,7 @@ class MonthsController extends Controller
     }
 
 
-    public function update4(Request $request, $id)
+    public function update9(Request $request, $id)
     {
         $september = September_day::findOrFail($id);
 
