@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\January_day;
 use App\Models\February_day;
-use App\Models\August_day;
 use App\Models\March_day;
-use App\Models\September_day;
 use App\Models\April_day;
+use App\Models\May_day;
+use App\Models\August_day;
+use App\Models\September_day;
 use App\Models\User;
 
 class MonthsController extends Controller
@@ -34,10 +35,15 @@ class MonthsController extends Controller
     {
         return view('months.march');
     }
-
+    
     public function index4()
     {
         return view('months.april');
+    }
+
+    public function index5()
+    {
+        return view('months.may');
     }
 
     public function index8()
@@ -82,6 +88,14 @@ class MonthsController extends Controller
         $april = April_day::findOrFail($id);
 
         $april->update($request->all());
+        return redirect()->back()->with('success', 'Dati aggiornati con successo.');
+    }
+
+    public function update5(Request $request, $id)
+    {
+        $may = May_day::findOrFail($id);
+
+        $may->update($request->all());
         return redirect()->back()->with('success', 'Dati aggiornati con successo.');
     }
 

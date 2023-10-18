@@ -37,6 +37,7 @@ Route::get('/january', [MonthsController::class, 'index1'])->name('months.januar
 Route::get('/february', [MonthsController::class, 'index2'])->name('months.february');
 Route::get('/march', [MonthsController::class, 'index3'])->name('months.march');
 Route::get('/april', [MonthsController::class, 'index4'])->name('months.april');
+Route::get('/may', [MonthsController::class, 'index5'])->name('months.may');
 Route::get('/august', [MonthsController::class, 'index8'])->name('months.august');
 Route::get('/september', [MonthsController::class, 'index9'])->name('months.september');
 
@@ -46,6 +47,7 @@ Route::put('/january-days/{id}', [MonthsController::class, 'update1'])->name('ja
 Route::put('/february-days/{id}', [MonthsController::class, 'update2'])->name('february-days.update');
 Route::put('/march-days/{id}', [MonthsController::class, 'update3'])->name('march-days.update');
 Route::put('/april-days/{id}', [MonthsController::class, 'update4'])->name('april-days.update');
+Route::put('/may-days/{id}', [MonthsController::class, 'update5'])->name('may-days.update');
 Route::put('/august-days/{id}', [MonthsController::class, 'update8'])->name('august-days.update');
 Route::put('/september-days/{id}', [MonthsController::class, 'update9'])->name('september-days.update');
 
