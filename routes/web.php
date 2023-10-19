@@ -51,3 +51,5 @@ Route::put('/may-days/{id}', [MonthsController::class, 'update5'])->name('may-da
 Route::put('/august-days/{id}', [MonthsController::class, 'update8'])->name('august-days.update');
 Route::put('/september-days/{id}', [MonthsController::class, 'update9'])->name('september-days.update');
 
+Route::get('/admin/create_client', [AdminController::class, 'index1'])->name('admin.create-client');
+

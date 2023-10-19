@@ -7,18 +7,15 @@ use App\Models\Client;
 
 class CreateClient extends Component
 {
-
-    public $is_admin;
-    public $is_revisor;
+    public $surname;
     public $name;
     public $email;
-    public $password;
-    public $user;
+    public $client;
 
     protected $rules = [
-        'name' => 'required|min:4',
+        'name' => 'required|min:2',
         'email' => 'required|email',
-        'password' => 'required|min:6',
+        'surname' => 'required|min:2',
     ];
 
     protected $messages = [
@@ -35,39 +32,35 @@ class CreateClient extends Component
         'edit'
     ];
 
-    public function createUser()
+    public function createClient()
     {
         // Validazione dei dati
         $this->validate();
 
         // Controlla se stai creando un nuovo utente o modificando un utente esistente
-        if ($this->user) {
+        if ($this->client) {
             // Modifica l'utente esistente
-            $this->user->update([
-                'is_admin' => $this->is_admin,
-                'is_revisor' => $this->is_revisor,
+            $this->client->update([
                 'name' => $this->name,
-                'email' => $this->email, // Non è necessario verificare l'unicità qui
-                'password' => bcrypt($this->password),
+                'email' => $this->email, 
+                'surname' => $this->surname,
             ]);
 
             // Emetti un messaggio di successo
             session()->flash('success', 'Utente modificato con successo.');
         } else {
             // Verifica l'unicità dell'email solo quando stai creando un nuovo utente
-            $existingUser = User::where('email', $this->email)->first();
+            $existingUser = Client::where('email', $this->email)->first();
 
             if ($existingUser) {
                 // L'utente con questa email esiste già nel database
                 session()->flash('error', 'The email entered is already associated with another user.');
             } else {
                 // Creazione di un nuovo utente
-                User::create([
-                    'is_admin' => $this->is_admin,
-                    'is_revisor' => $this->is_revisor,
+                Client::create([
                     'name' => $this->name,
-                    'email' => $this->email,
-                    'password' => bcrypt($this->password),
+                    'email' => $this->email, 
+                    'surname' => $this->surname,
                 ]);
 
                 // Emetti un messaggio di successo
@@ -76,51 +69,34 @@ class CreateClient extends Component
         }
 
         // Pulisci i campi del modulo dopo la creazione o la modifica
-        $this->newUser();
+        $this->newClient();
 
-        $this->dispatch('loadUsers');
+        $this->dispatch('loadClients');
     }
 
 
 
     public function mount()
     {
-        $this->newUser();
+        $this->newClient();
     }
 
     // Creazione nuovo utente
-    public function newUser()
+    public function newClient()
     {
-        $this->user = '';
+        $this->client = '';
         $this->name = '';
         $this->email = '';
-        $this->password = '';
+        $this->surname = '';
     }
 
     //Edita utente
-    public function edit($user_id)
+    public function edit($client_id)
     {
-        $this->user = \App\Models\User::find($user_id);
-        $this->name = $this->user->name;
-        $this->email = $this->user->email;
-        $this->password = '';
-
-        if($this->user->is_admin != 1 || $this->user->is_admin == null){
-            $this->is_admin = false;
-        }
-        else
-        {
-            $this->is_admin = true;
-        };
-        if ($this->user->is_revisor != 1 || $this->user->is_revisor == null)
-        {
-            $this->is_revisor = false;
-        }
-        else
-        {
-            $this->is_revisor = true;
-        };
-
+        $this->client = Client::find($client_id);
+        $this->name = $this->client->name;
+        $this->email = $this->client->email;
+        $this->surname = $this->client->surname;
     }
 
     public function render()

@@ -16,6 +16,12 @@ class AdminController extends Controller
         return view('admin.create-user', compact('title'));
     }
 
+    public function index1()
+    {
+        $title = 'Create Client';
+        return view('admin.create-client', compact('title'));
+    }
+
     public function category()
     {
         $title = 'Create Category';
