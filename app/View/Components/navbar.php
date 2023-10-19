@@ -25,6 +25,7 @@ class navbar extends Component
                     route('articles.index') => 'Articles',
                     route('articles.create') => 'Add Articles',
                     route('admin.create-user') => 'Create-User',
+                    route('admin.create-client') => 'Create-Client',
                     route('admin.create-category') => 'Create-Category',
                    
                 ];
