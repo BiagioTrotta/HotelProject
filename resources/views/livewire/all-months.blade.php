@@ -2,6 +2,7 @@
     <form wire:submit.prevent="changeTable">
         <label for="selectMonth">Seleziona il mese:</label>
         <select wire:model="selectMonth" id="selectMonth">
+            <option value="0" selected></option>
             <option value="1">Gennaio</option>
             <option value="2">Febbraio</option>
             <option value="3">Marzo</option>
@@ -16,7 +17,7 @@
     {{-- Mostra i giorni del mese selezionato in una tabella --}}
     @if($month)
         <h2>Dati del mese</h2>
-        <table class="table">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Stanza</th>
@@ -32,7 +33,7 @@
                         @for ($day = 1; $day <= $maxDay; $day++)
                             <td>
                                 @if (!empty($data["day_{$day}_user_id"]))
-                                    Utente: {{ $users[$data["day_{$day}_user_id"] - 1]->name  }}
+                                    {{ $users[$data["day_{$day}_user_id"] - 1]->name  }}
                                 @endif
                             </td>
                         @endfor

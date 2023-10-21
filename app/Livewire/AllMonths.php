@@ -26,7 +26,10 @@ class AllMonths extends Component
     }
     public function changeTable()
     {
-        if ($this->selectMonth == 1) {
+        if ($this->selectMonth == 0) {
+            $this->month = '';
+            $this->maxDay = 30;
+        } elseif ($this->selectMonth == 1) {
             $this->month = January_day::all();
             $this->maxDay = 31;
         } elseif ($this->selectMonth == 2) {
@@ -48,6 +51,7 @@ class AllMonths extends Component
             $this->month = September_day::all();
             $this->maxDay = 30;
         }
+    
         
     }
     public function render()
