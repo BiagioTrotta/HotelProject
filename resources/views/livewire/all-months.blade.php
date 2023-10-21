@@ -32,7 +32,7 @@
                         @for ($day = 1; $day <= $maxDay; $day++)
                             <td>
                                 @if (!empty($data["day_{$day}_user_id"]))
-                                    Utente: {{ $users[$data["day_{$day}_user_id"]]->name  }}
+                                    Utente: {{ $users[$data["day_{$day}_user_id"] - 1]->name  }}
                                 @endif
                             </td>
                         @endfor
