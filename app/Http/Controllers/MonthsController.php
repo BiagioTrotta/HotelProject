@@ -56,6 +56,11 @@ class MonthsController extends Controller
         return view('months.september');
     }
 
+    public function indexAll()
+    {
+        return view('months.all');
+    }
+
     
 
 

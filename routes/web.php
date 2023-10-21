@@ -40,6 +40,7 @@ Route::get('/april', [MonthsController::class, 'index4'])->name('months.april');
 Route::get('/may', [MonthsController::class, 'index5'])->name('months.may');
 Route::get('/august', [MonthsController::class, 'index8'])->name('months.august');
 Route::get('/september', [MonthsController::class, 'index9'])->name('months.september');
+Route::get('/allmonths', [MonthsController::class, 'indexAll'])->name('months');
 
 Route::get('/august-days', [MonthsController::class, 'index'])->name('august-days.index');
 
