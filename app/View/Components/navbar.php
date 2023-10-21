@@ -18,8 +18,7 @@ class navbar extends Component
 
     public function render(): View|Closure|string
     {
-        if(auth()->check())
-        {
+        if (auth()->check()) {
             $this->nav =
                 [
                     route('articles.index') => 'Articles',
@@ -27,9 +26,10 @@ class navbar extends Component
                     route('admin.create-user') => 'Create-User',
                     route('admin.create-client') => 'Create-Client',
                     route('admin.create-category') => 'Create-Category',
-                   
+                    route('months.all') => 'All Months',
+
                 ];
-                $this->nav2 = 
+            $this->nav2 =
                 [
                     route('months.january') => 'January',
                     route('months.february') => 'February',
@@ -39,15 +39,14 @@ class navbar extends Component
                     route('months.august') => 'August',
                     route('months.september') => 'September',
                 ];
-        }
-        else
-        {
+        } else {
             $this->nav =
                 [
                     route('articles.index') => 'Articles',
-                    
+                    route('months.all') => 'All Months',
+
                 ];
-                $this->nav2 = 
+            $this->nav2 =
                 [
                     route('months.january') => 'January',
                     route('months.february') => 'February',

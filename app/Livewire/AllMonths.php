@@ -17,6 +17,7 @@ class AllMonths extends Component
     public $month;
     public $maxDay;
     public $selectMonth;
+    public $title;
 
     public $users;
 
@@ -32,27 +33,34 @@ class AllMonths extends Component
         } elseif ($this->selectMonth == 1) {
             $this->month = January_day::all();
             $this->maxDay = 31;
+            $this->title = 'Gennaio';
         } elseif ($this->selectMonth == 2) {
             $this->month = February_day::all();
-            $this->maxDay = 28; // Febbraio ha 28 giorni di default, modificalo se necessario
+            $this->maxDay = 28;
+            $this->title = 'Febbraio';
         } elseif ($this->selectMonth == 3) {
             $this->month = March_day::all();
             $this->maxDay = 31;
+            $this->title = 'Marzo';
         } elseif ($this->selectMonth == 4) {
             $this->month = April_day::all();
             $this->maxDay = 30;
+            $this->title = 'Aprile';
         } elseif ($this->selectMonth == 5) {
             $this->month = May_day::all();
             $this->maxDay = 31;
+            $this->title = 'Maggio';
         } elseif ($this->selectMonth == 8) {
             $this->month = August_day::all();
             $this->maxDay = 31;
+            $this->title = 'Agosto';
         } elseif ($this->selectMonth == 9) {
             $this->month = September_day::all();
             $this->maxDay = 30;
+            $this->title = 'Settembre';
         }
-    
-        
+
+
     }
     public function render()
     {

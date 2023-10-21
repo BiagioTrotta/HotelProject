@@ -16,30 +16,28 @@
 
     {{-- Mostra i giorni del mese selezionato in una tabella --}}
     @if($month)
-        <h2>Dati del mese</h2>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Stanza</th>
-                    @for ($day = 1; $day <= $maxDay; $day++)
-                        <th>Giorno {{ $day }}</th>
+    <h2>{{$title}}</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Stanza</th>
+                @for ($day = 1; $day <= $maxDay; $day++) <th>Giorno {{ $day }}</th>
                     @endfor
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($month as $data)
-                    <tr>
-                        <td>Stanza {{ $data->room->numero }}</td>
-                        @for ($day = 1; $day <= $maxDay; $day++)
-                            <td>
-                                @if (!empty($data["day_{$day}_user_id"]))
-                                    {{ $users[$data["day_{$day}_user_id"] - 1]->name  }}
-                                @endif
-                            </td>
-                        @endfor
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($month as $data)
+            <tr>
+                <td>Stanza {{ $data->room->numero }}</td>
+                @for ($day = 1; $day <= $maxDay; $day++) <td>
+                    @if (!empty($data["day_{$day}_user_id"]))
+                    {{ $users[$data["day_{$day}_user_id"] - 1]->name  }}
+                    @endif
+                    </td>
+                    @endfor
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
     @endif
 </div>
