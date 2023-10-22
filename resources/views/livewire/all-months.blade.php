@@ -17,6 +17,7 @@
     {{-- Mostra i giorni del mese selezionato in una tabella --}}
     @if($month)
     <h2>{{$title}}</h2>
+    <div class="table-responsive">
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -56,5 +57,6 @@
             @endforeach
         </tbody>
     </table>
+    </div>
     @endif
 </div>
