@@ -18,6 +18,7 @@ class AllMonths extends Component
     public $maxDay;
     public $selectMonth;
     public $title;
+    public $day;
 
     public $users;
 
@@ -59,9 +60,31 @@ class AllMonths extends Component
             $this->maxDay = 30;
             $this->title = 'Settembre';
         }
-
-
     }
+
+    public function updateDayUser($dayId, $day)
+    {
+        $dayData = $this->month[$dayId];
+
+        // Ottieni il nome della colonna che deve essere aggiornata nel database
+        $columnName = 'day_' . $day . '_user_id';
+
+        // Ottieni l'ID utente aggiornato
+        $updatedUserId = $dayData[$columnName];
+
+        // Ottieni il record del giorno basato sull'ID
+        $dayRecord = April_day::find($dayId);
+
+        // Aggiorna il valore della colonna nel record del giorno
+        $dayRecord->$columnName = $updatedUserId;
+
+        // Salva le modifiche nel database
+        $dayRecord->save();
+
+        // Dopo aver eseguito l'aggiornamento nel database, potresti voler ricaricare i dati
+        $this->changeTable();
+    }
+
     public function render()
     {
         return view('livewire.all-months');

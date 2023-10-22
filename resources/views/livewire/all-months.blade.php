@@ -29,10 +29,27 @@
             @foreach($month as $data)
             <tr>
                 <td>Stanza {{ $data->room->numero }}</td>
-                @for ($day = 1; $day <= $maxDay; $day++) <td>
-                    @if (!empty($data["day_{$day}_user_id"]))
-                    {{ $users[$data["day_{$day}_user_id"] - 1]->name  }}
-                    @endif
+                @for ($day = 1; $day <= $maxDay; $day++) @if (!empty($data["day_{$day}_user_id"])) <td class="bg-success">
+                    <!--  {{ $users[$data["day_{$day}_user_id"] - 1]->name  }} -->
+                    <form wire:submit.prevent="updateDayUser({{ $data->id }}, {{ $day }})">
+                        @csrf
+                        <input type="number" wire:model.defer="month[{{ $data->id }}][day_{{ $day }}_user_id]" placeholder="{{ $data->{'day_'.$day.'_user_id'} }}" style="width: 60px; padding: 5px;">
+                        <button class="btn btn-outline-dark" type="submit"><i class="fa-solid fa-lock-open"></i></button>
+                    </form>
+                    <span class="fw-small font-monospace text-uppercase mx-2">{{ $users[$data->{'day_'.$day.'_user_id'}-1]->name ?? '' }}</span>
+                    </td>
+                    @else
+                    <td>
+                        <form method="POST" action="{{ route('april-days.update', $data->id) }}">
+                            @csrf
+                            @method('PUT')
+                            <div style="display: flex; align-items: center;">
+                                <input type="number" name="day_{{ $day }}_user_id" value="{{ $data->{'day_'.$day} }}" placeholder="{{ $data->{'day_'.$day.'_user_id'} }}" style="margin-right: 10px; width: 60px; padding: 5px;">
+                                <button class="btn btn-outline-dark" type="submit" style="margin-right: 10px;"><i class="fa-solid fa-lock-open"></i></button>
+                            </div>
+                            <span class="fw-bold text-uppercase mx-2">Empty</span>
+                        </form>
+                        @endif
                     </td>
                     @endfor
             </tr>
