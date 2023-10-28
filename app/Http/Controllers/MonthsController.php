@@ -8,6 +8,7 @@ use App\Models\February_day;
 use App\Models\March_day;
 use App\Models\April_day;
 use App\Models\May_day;
+use App\Models\june_day;
 use App\Models\August_day;
 use App\Models\September_day;
 use App\Models\User;
@@ -44,6 +45,11 @@ class MonthsController extends Controller
     public function index5()
     {
         return view('months.may');
+    }
+
+    public function index6()
+    {
+        return view('months.june');
     }
 
     public function index8()
@@ -104,6 +110,14 @@ class MonthsController extends Controller
         return redirect()->back()->with('success', 'Dati aggiornati con successo.');
     }
 
+    public function update6(Request $request, $id)
+    {
+        $june = June_day::findOrFail($id);
+
+        $june->update($request->all());
+        return redirect()->back()->with('success', 'Dati aggiornati con successo.');
+    }
+
     public function update8(Request $request, $id)
     {
         $august = August_day::findOrFail($id);
@@ -118,6 +132,14 @@ class MonthsController extends Controller
         $september = September_day::findOrFail($id);
 
         $september->update($request->all());
+        return redirect()->back()->with('success', 'Dati aggiornati con successo.');
+    }
+
+    public function updateAll(Request $request, $id)
+    {
+        $january = January_day::findOrFail($id);
+
+        $january->update($request->all());
         return redirect()->back()->with('success', 'Dati aggiornati con successo.');
     }
 
