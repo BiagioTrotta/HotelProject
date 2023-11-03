@@ -39,8 +39,13 @@ Route::get('/march', [MonthsController::class, 'index3'])->name('months.march');
 Route::get('/april', [MonthsController::class, 'index4'])->name('months.april');
 Route::get('/may', [MonthsController::class, 'index5'])->name('months.may');
 Route::get('/june', [MonthsController::class, 'index6'])->name('months.june');
+Route::get('/july', [MonthsController::class, 'index7'])->name('months.july');
 Route::get('/august', [MonthsController::class, 'index8'])->name('months.august');
 Route::get('/september', [MonthsController::class, 'index9'])->name('months.september');
+Route::get('/october', [MonthsController::class, 'index10'])->name('months.october');
+Route::get('/november', [MonthsController::class, 'index11'])->name('months.november');
+Route::get('/december', [MonthsController::class, 'index12'])->name('months.december');
+
 Route::get('/allmonths', [MonthsController::class, 'indexAll'])->name('months.all');
 
 Route::get('/august-days', [MonthsController::class, 'index'])->name('august-days.index');
@@ -51,7 +56,11 @@ Route::put('/march-days/{id}', [MonthsController::class, 'update3'])->name('marc
 Route::put('/april-days/{id}', [MonthsController::class, 'update4'])->name('april-days.update');
 Route::put('/may-days/{id}', [MonthsController::class, 'update5'])->name('may-days.update');
 Route::put('/june-days/{id}', [MonthsController::class, 'update6'])->name('june-days.update');
+Route::put('/july-days/{id}', [MonthsController::class, 'update7'])->name('july-days.update');
 Route::put('/august-days/{id}', [MonthsController::class, 'update8'])->name('august-days.update');
 Route::put('/september-days/{id}', [MonthsController::class, 'update9'])->name('september-days.update');
+Route::put('/october-days/{id}', [MonthsController::class, 'update10'])->name('october-days.update');
+Route::put('/november-days/{id}', [MonthsController::class, 'update11'])->name('november-days.update');
+Route::put('/december-days/{id}', [MonthsController::class, 'update12'])->name('december-days.update');
 
 Route::get('/admin/create_client', [AdminController::class, 'index1'])->name('admin.create-client');

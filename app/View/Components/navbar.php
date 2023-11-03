@@ -37,6 +37,7 @@ class navbar extends Component
                     route('months.april') => 'April',
                     route('months.may') => 'May',
                     route('months.june') => 'June',
+                    route('months.july') => 'July',
                     route('months.august') => 'August',
                     route('months.september') => 'September',
                 ];
@@ -55,6 +56,7 @@ class navbar extends Component
                     route('months.april') => 'April',
                     route('months.may') => 'May',
                     route('months.june') => 'June',
+                    route('months.july') => 'July',
                     route('months.august') => 'August',
                     route('months.september') => 'September',
                 ];
