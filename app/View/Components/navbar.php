@@ -42,6 +42,7 @@ class navbar extends Component
                     route('months.september') => 'September',
                     route('months.october') => 'October',
                     route('months.november') => 'November',
+                    route('months.december') => 'December',
                 ];
         } else {
             $this->nav =
@@ -62,6 +63,7 @@ class navbar extends Component
                     route('months.august') => 'August',
                     route('months.september') => 'September',
                     route('months.november') => 'November',
+                    route('months.december') => 'December',
                 ];
         }
 

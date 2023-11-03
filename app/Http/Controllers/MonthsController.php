@@ -14,6 +14,7 @@ use App\Models\August_day;
 use App\Models\September_day;
 use App\Models\October_day;
 use App\Models\November_day;
+use App\Models\December_day;
 use App\Models\User;
 
 class MonthsController extends Controller
@@ -180,6 +181,14 @@ class MonthsController extends Controller
         $november = November_day::findOrFail($id);
 
         $november->update($request->all());
+        return redirect()->back()->with('success', 'Dati aggiornati con successo.');
+    }
+
+    public function update12(Request $request, $id)
+    {
+        $december = December_day::findOrFail($id);
+
+        $december->update($request->all());
         return redirect()->back()->with('success', 'Dati aggiornati con successo.');
     }
 
