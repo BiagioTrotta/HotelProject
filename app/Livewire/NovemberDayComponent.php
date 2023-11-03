@@ -3,13 +3,10 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\May_day;
+use App\Models\November_day;
 use App\Models\User;
-
-
-class MayDayComponent extends Component
+class NovemberDayComponent extends Component
 {
-     
     public $room_id;
     public $user_id;
     public $start_day;
@@ -32,9 +29,9 @@ class MayDayComponent extends Component
     public function update2()
     {   
         dd($this->room_id,$this->user_id );
-        $may = May_day::findOrFail($this->room_id);
+        $november = November_day::findOrFail($this->room_id);
 
-        $may->update($this->user_id);
+        $november->update($this->user_id);
         return redirect()->back()->with('success', 'Dati aggiornati con successooo.');
     }
 
@@ -42,15 +39,15 @@ class MayDayComponent extends Component
 {
     dd($this->room_id, $this->user_id, $this->day);
 
-    // Trova il record May_day specifico in base a room_id
-    $may = May_day::findOrFail($this->room_id);
+    // Trova il record November_day specifico in base a room_id
+    $november = November_day::findOrFail($this->room_id);
 
     // Costruisci il nome della colonna del giorno specifico
     $column = 'day_' . $this->day . '_user_id';
 
     // Aggiorna l'ID utente nel record
-    $may->$column = $this->user_id;
-    $may->save();
+    $november->$column = $this->user_id;
+    $november->save();
 
     $this->loadDays();
 }
@@ -59,8 +56,8 @@ class MayDayComponent extends Component
 
     public function gestisciIntervalli2()
     {
-        $may = May_day::findOrFail($this->room_id);
-        $may->update([
+        $november = November_day::findOrFail($this->room_id);
+        $november->update([
             'room_id' => $this->room_id,
             'day_' . $this->start_day . '_user_id' => $this->user_id,
             'day_' . $this->end_day . '_user_id' => $this->user_id,
@@ -75,15 +72,15 @@ class MayDayComponent extends Component
     {
         /* dd($this->user_id ,$this->start_day, $this->end_day, $this->room_id); */
         $this->validate();
-        $may = May_day::findOrFail($this->room_id);
+        $november = November_day::findOrFail($this->room_id);
 
         for ($day = $this->start_day; $day <= $this->end_day; $day++) {
             $column = 'day_' . $day . '_user_id';
             /* dd($column); */
-            $may->$column = $this->user_id;
+            $november->$column = $this->user_id;
         }
 
-        $may->save();
+        $november->save();
 
         session()->flash('success', 'Intervallo assegnato con successo.');
 
@@ -106,7 +103,7 @@ class MayDayComponent extends Component
 
     public function loadDays()
     {
-        $this->data = May_day::all();
+        $this->data = November_day::all();
         $this->users = User::all();
     }
 
@@ -120,10 +117,10 @@ class MayDayComponent extends Component
 
     public function render()
     {
-        $data = May_day::all();
+        $data = November_day::all();
         $users = User::all();
 
-        return view('livewire.may-day-component');
+        return view('livewire.november-day-component');
     }
-
+  
 }

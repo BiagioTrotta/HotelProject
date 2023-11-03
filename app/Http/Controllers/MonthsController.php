@@ -13,6 +13,7 @@ use App\Models\july_day;
 use App\Models\August_day;
 use App\Models\September_day;
 use App\Models\October_day;
+use App\Models\November_day;
 use App\Models\User;
 
 class MonthsController extends Controller
@@ -72,6 +73,16 @@ class MonthsController extends Controller
     public function index10()
     {
         return view('months.october');
+    }
+
+    public function index11()
+    {
+        return view('months.november');
+    }
+
+    public function index12()
+    {
+        return view('months.december');
     }
 
     public function indexAll()
@@ -160,6 +171,15 @@ class MonthsController extends Controller
         $october = October_day::findOrFail($id);
 
         $october->update($request->all());
+        return redirect()->back()->with('success', 'Dati aggiornati con successo.');
+    }
+    
+
+    public function update11(Request $request, $id)
+    {
+        $november = November_day::findOrFail($id);
+
+        $november->update($request->all());
         return redirect()->back()->with('success', 'Dati aggiornati con successo.');
     }
 
