@@ -20,7 +20,7 @@
                 <div class="col-md-2 col-12 mb-3">
                     <label for="start_day" class="fw-bold ms-2">Init of interval:</label>
                     <select wire:model.defer="start_day" class="form-select">
-                        @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
+                        @for ($day = 1; $day <= 30; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
                             @endfor
                     </select>
                 </div>
@@ -28,7 +28,7 @@
                 <div class="col-md-2 col-12 mb-3">
                     <label for="end_day" class="fw-bold ms-2">End of interval:</label>
                     <select wire:model.defer="end_day" class="form-select">
-                        @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
+                        @for ($day = 1; $day <= 30; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
                             @endfor
                     </select>
                 </div>
@@ -66,7 +66,7 @@
                 <thead>
                     <tr>
                         <th>N.Room</th>
-                        @for ($day = 1; $day <= 31; $day++) <th class="sticky-header">Day {{ $day }}</th>
+                        @for ($day = 1; $day <= 30; $day++) <th class="sticky-header">Day {{ $day }}</th>
                             @endfor
                     </tr>
                 </thead>
@@ -78,7 +78,7 @@
                     <tr>
                         <td class="text-center sticky-cell">{{ $row->room->numero }}</td>
 
-                        @for ($day = 1; $day <= 31; $day++) @if($row->{'day_'.$day.'_user_id'})
+                        @for ($day = 1; $day <= 30; $day++) @if($row->{'day_'.$day.'_user_id'})
                             <td class="bg-success">
                                 <form method="POST" action="{{ route('november-days.update', $row->id) }}">
                                     @csrf
@@ -129,7 +129,7 @@
                 <thead>
                     <tr>
                         <th>N.Room</th>
-                        @for ($day = 1; $day <= 31; $day++) <th class="sticky-header">Day {{ $day }}</th>
+                        @for ($day = 1; $day <= 30; $day++) <th class="sticky-header">Day {{ $day }}</th>
                             @endfor
                     </tr>
                 </thead>
@@ -138,7 +138,7 @@
                     @if ($loop->index < 12 ) @continue @endif <tr>
                         <td class="text-center sticky-cell">{{ $row->room->numero }}</td>
 
-                        @for ($day = 1; $day <= 31; $day++) @if($row->{'day_'.$day.'_user_id'})
+                        @for ($day = 1; $day <= 30; $day++) @if($row->{'day_'.$day.'_user_id'})
                             <td class="bg-success">
                                 <form method="POST" action="{{ route('november-days.update', $row->id) }}">
                                     @csrf
@@ -187,7 +187,7 @@
                 <thead>
                     <tr>
                         <th>N.Room</th>
-                        @for ($day = 1; $day <= 31; $day++) <th class="sticky-header">Day {{ $day }}</th>
+                        @for ($day = 1; $day <= 30; $day++) <th class="sticky-header">Day {{ $day }}</th>
                             @endfor
                     </tr>
                 </thead>
@@ -196,7 +196,7 @@
                     @if ($loop->index < 23 ) @continue @endif <tr>
                         <td class="text-center sticky-cell">{{ $row->room->numero }}</td>
 
-                        @for ($day = 1; $day <= 31; $day++) @if($row->{'day_'.$day.'_user_id'})
+                        @for ($day = 1; $day <= 30; $day++) @if($row->{'day_'.$day.'_user_id'})
                             <td class="bg-success">
                                 <form method="POST" action="{{ route('november-days.update', $row->id) }}">
                                     @csrf

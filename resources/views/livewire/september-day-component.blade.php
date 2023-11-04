@@ -20,7 +20,7 @@
                 <div class="col-md-2 col-12 mb-3">
                     <label for="start_day" class="fw-bold ms-2">Init of interval:</label>
                     <select wire:model.defer="start_day" class="form-select">
-                        @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
+                        @for ($day = 1; $day <= 30; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
                             @endfor
                     </select>
                 </div>
@@ -28,7 +28,7 @@
                 <div class="col-md-2 col-12 mb-3">
                     <label for="end_day" class="fw-bold ms-2">End of interval:</label>
                     <select wire:model.defer="end_day" class="form-select">
-                        @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
+                        @for ($day = 1; $day <= 30; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
                             @endfor
                     </select>
                 </div>

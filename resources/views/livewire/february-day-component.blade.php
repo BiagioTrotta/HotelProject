@@ -66,7 +66,7 @@
                 <thead>
                     <tr>
                         <th>N.Room</th>
-                        @for ($day = 1; $day <= 31; $day++) <th class="sticky-header">Day {{ $day }}</th>
+                        @for ($day = 1; $day <= 28; $day++) <th class="sticky-header">Day {{ $day }}</th>
                             @endfor
                     </tr>
                 </thead>
@@ -78,7 +78,7 @@
                     <tr>
                         <td class="text-center sticky-cell">{{ $row->room->numero }}</td>
 
-                        @for ($day = 1; $day <= 31; $day++) @if($row->{'day_'.$day.'_user_id'})
+                        @for ($day = 1; $day <= 28; $day++) @if($row->{'day_'.$day.'_user_id'})
                             <td class="bg-success">
                                 <form method="POST" action="{{ route('february-days.update', $row->id) }}">
                                     @csrf
@@ -129,7 +129,7 @@
                 <thead>
                     <tr>
                         <th>N.Room</th>
-                        @for ($day = 1; $day <= 31; $day++) <th class="sticky-header">Day {{ $day }}</th>
+                        @for ($day = 1; $day <= 28; $day++) <th class="sticky-header">Day {{ $day }}</th>
                             @endfor
                     </tr>
                 </thead>
@@ -138,7 +138,7 @@
                     @if ($loop->index < 12 ) @continue @endif <tr>
                         <td class="text-center sticky-cell">{{ $row->room->numero }}</td>
 
-                        @for ($day = 1; $day <= 31; $day++) @if($row->{'day_'.$day.'_user_id'})
+                        @for ($day = 1; $day <= 28; $day++) @if($row->{'day_'.$day.'_user_id'})
                             <td class="bg-success">
                                 <form method="POST" action="{{ route('february-days.update', $row->id) }}">
                                     @csrf
@@ -187,7 +187,7 @@
                 <thead>
                     <tr>
                         <th>N.Room</th>
-                        @for ($day = 1; $day <= 31; $day++) <th class="sticky-header">Day {{ $day }}</th>
+                        @for ($day = 1; $day <= 28; $day++) <th class="sticky-header">Day {{ $day }}</th>
                             @endfor
                     </tr>
                 </thead>
@@ -196,7 +196,7 @@
                     @if ($loop->index < 23 ) @continue @endif <tr>
                         <td class="text-center sticky-cell">{{ $row->room->numero }}</td>
 
-                        @for ($day = 1; $day <= 31; $day++) @if($row->{'day_'.$day.'_user_id'})
+                        @for ($day = 1; $day <= 28; $day++) @if($row->{'day_'.$day.'_user_id'})
                             <td class="bg-success">
                                 <form method="POST" action="{{ route('february-days.update', $row->id) }}">
                                     @csrf
