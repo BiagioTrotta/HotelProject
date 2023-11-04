@@ -9,6 +9,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Surname</th>
                     <th>Name</th>
                     <th>Email</th>
@@ -18,6 +19,7 @@
             <tbody class=" table-group-divider">
                 @foreach ($clienti as $client)
                 <tr>
+                    <td>{{ $client->id }}</td>
                 <td><i class="fa-solid fa-user"></i> {{ $client->surname }}</td>
                     <td><i class="fa-solid fa-user"></i> {{ $client->name }}</td>
                     <td>{{ $client->email }}</td>

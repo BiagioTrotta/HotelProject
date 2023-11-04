@@ -44,7 +44,7 @@ class ListClients extends Component
     public function render()
     {
         return view('livewire.list-clients', [
-            'clienti' => Client::paginate(3),
+            'clienti' => Client::orderBy('surname')->orderBy('name')->paginate(5),
         ]);
     }
 }
