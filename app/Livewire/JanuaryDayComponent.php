@@ -107,9 +107,12 @@ public function replaceUser()
 {
     // Sostituisci l'utente esistente
     $august = January_day::findOrFail($this->room_id);
-    $day = $this->dayToReplace;
-    $column = 'day_' . $day . '_user_id';
-    $august->$column = $this->user_id;
+
+    for ($day = $this->start_day; $day <= $this->end_day; $day++) {
+        $column = 'day_' . $day . '_user_id';
+        $august->$column = $this->user_id;
+    }
+
     $august->save();
 
     session()->flash('success', 'Utente sostituito con successo per il giorno ' . $day);
