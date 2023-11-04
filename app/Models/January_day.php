@@ -20,7 +20,7 @@ class January_day extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'day_1_user_id') // Esegui il collegamento con la colonna day_1_user_id
+        return $this->belongsTo(Client::class, 'day_1_user_id') // Esegui il collegamento con la colonna day_1_user_id
         ->orWhere('day_2_user_id')
         ->orWhere('day_3_user_id')
         ->orWhere('day_4_user_id')

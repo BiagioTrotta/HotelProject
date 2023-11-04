@@ -19,7 +19,7 @@ return new class extends Migration
                 $table->unsignedBigInteger('day_' . $day .
                 '_user_id')->nullable();
                 $table->foreign('day_' . $day .
-                '_user_id')->references('id')->on('users');
+                '_user_id')->references('id')->on('clients');
             }
             $table->timestamps();
         });

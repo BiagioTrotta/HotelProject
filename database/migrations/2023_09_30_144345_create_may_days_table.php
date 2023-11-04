@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('march_days', function (Blueprint $table) {
+        Schema::create('may_days', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('room_id')->unique();
             $table->foreign('room_id')->references('id')->on('rooms');
@@ -19,7 +19,7 @@ return new class extends Migration
                 $table->unsignedBigInteger('day_' . $day .
                 '_user_id')->nullable();
                 $table->foreign('day_' . $day .
-                '_user_id')->references('id')->on('users');
+                '_user_id')->references('id')->on('clients');
             }
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('march_days');
+        Schema::dropIfExists('may_days');
     }
 };

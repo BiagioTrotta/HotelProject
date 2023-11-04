@@ -4,6 +4,7 @@
             <h1>January Days Data</h1>
         </div>
     </div>
+    
     <!-- Navbar camere -->
     <div class="container rounded-2 sticky-custom mt-5 text-center">
         <form class="form-control bg-custom text-light mt-5" wire:submit.prevent="gestisciIntervalli">
@@ -52,6 +53,15 @@
         <div style="color: green; background: lightgrey;">{{ session('success') }}</div>
         @endif
     </div>
+
+    @if ($showConfirmation)
+    <div class="alert alert-warning">
+        È già presente un utente per il giorno {{ $dayToReplace }}. Vuoi sostituirlo?
+        <button wire:click="replaceUser">Sì</button>
+        <button wire:click="cancelReplacement">No</button>
+    </div>
+@endif
+
 
     <!-- Primo piano -->
     <div class="container">

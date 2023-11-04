@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\January_day;
 use App\Models\User;
+use App\Models\Client;
 
 class JanuaryDayComponent extends Component
 {
@@ -16,6 +17,11 @@ class JanuaryDayComponent extends Component
     public $users;
 
     public $day;
+
+    public $showConfirmation = false;
+
+    public $dayToReplace;
+
 
     protected function rules()
     {
@@ -70,23 +76,67 @@ class JanuaryDayComponent extends Component
     }
 
     public function gestisciIntervalli()
-    {
-        /* dd($this->user_id ,$this->start_day, $this->end_day, $this->room_id); */
-        $this->validate();
-        $august = January_day::findOrFail($this->room_id);
+{
+    /* dd($this->user_id, $this->start_day, $this->end_day, $this->room_id); */
+    $this->validate();
+    $august = January_day::findOrFail($this->room_id);
 
-        for ($day = $this->start_day; $day <= $this->end_day; $day++) {
-            $column = 'day_' . $day . '_user_id';
-            /* dd($column); */
-            $august->$column = $this->user_id;
+    for ($day = $this->start_day; $day <= $this->end_day; $day++) {
+        $column = 'day_' . $day . '_user_id';
+
+        // Verifica se il campo non è vuoto
+        if (!empty($august->$column)) {
+            $this->showConfirmation = true;
+            $this->dayToReplace = $day;
+            return; // Interrompe il loop se è già presente un utente
         }
 
-        $august->save();
-
-        session()->flash('success', 'Intervallo assegnato con successo.');
-
-        $this->loadDays();
+        $august->$column = $this->user_id;
     }
+
+    $august->save();
+
+    session()->flash('success', 'Intervallo assegnato con successo.');
+
+    $this->loadDays();
+}
+
+// Aggiungi questi metodi nella stessa classe dove hai definito gestisciIntervalli()
+
+public function replaceUser()
+{
+    // Sostituisci l'utente esistente
+    $august = January_day::findOrFail($this->room_id);
+    $day = $this->dayToReplace;
+    $column = 'day_' . $day . '_user_id';
+    $august->$column = $this->user_id;
+    $august->save();
+
+    session()->flash('success', 'Utente sostituito con successo per il giorno ' . $day);
+
+    // Pulisci le variabili e nascondi la conferma
+    $this->clearConfirmation();
+
+    $this->loadDays();
+}
+
+public function cancelReplacement()
+{
+    // Annulla l'azione
+    session()->flash('info', 'Sostituzione annullata.');
+
+    // Pulisci la conferma
+    $this->clearConfirmation();
+}
+
+private function clearConfirmation()
+{
+    $this->showConfirmation = false;
+    $this->dayToReplace = null;
+    // Puoi pulire altre variabili o stati di conferma qui, se necessario
+}
+
+
 
     public function updated($propertyName)
     {
@@ -105,7 +155,7 @@ class JanuaryDayComponent extends Component
     public function loadDays()
     {
         $this->data = January_day::all();
-        $this->users = User::all();
+        $this->users = Client::all();
     }
 
     public function ClearList()
@@ -119,7 +169,7 @@ class JanuaryDayComponent extends Component
     public function render()
     {
         $data = January_day::all();
-        $users = User::all();
+        $users = Client::all();
 
         return view('livewire.january-day-component');
     }

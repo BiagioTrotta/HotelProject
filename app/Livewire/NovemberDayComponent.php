@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\November_day;
 use App\Models\User;
+use App\Models\Client;
 class NovemberDayComponent extends Component
 {
     public $room_id;
@@ -104,7 +105,7 @@ class NovemberDayComponent extends Component
     public function loadDays()
     {
         $this->data = November_day::all();
-        $this->users = User::all();
+        $this->users = Client::all();
     }
 
     public function ClearList()
@@ -118,7 +119,7 @@ class NovemberDayComponent extends Component
     public function render()
     {
         $data = November_day::all();
-        $users = User::all();
+        $users = Client::all();
 
         return view('livewire.november-day-component');
     }

@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\March_day;
 use App\Models\User;
+use App\Models\Client;
 
 class MarchDayComponent extends Component
 {
@@ -106,7 +107,7 @@ class MarchDayComponent extends Component
     public function loadDays()
     {
         $this->data = March_day::all();
-        $this->users = User::all();
+        $this->users = Client::all();
     }
 
     public function ClearList()
@@ -120,7 +121,7 @@ class MarchDayComponent extends Component
     public function render()
     {
         $data = March_day::all();
-        $users = User::all();
+        $users = Client::all();
 
         return view('livewire.march-day-component');
     }

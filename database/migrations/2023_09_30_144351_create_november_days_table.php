@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('july_days', function (Blueprint $table) {
+        Schema::create('november_days', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('room_id')->unique();
             $table->foreign('room_id')->references('id')->on('rooms');
-            for ($day = 1; $day <= 31; $day++) {
+            for ($day = 1; $day <= 30; $day++) {
                 $table->unsignedBigInteger('day_' . $day .
                 '_user_id')->nullable();
                 $table->foreign('day_' . $day .
-                '_user_id')->references('id')->on('users');
+                '_user_id')->references('id')->on('clients');
             }
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('july_days');
+        Schema::dropIfExists('november_days');
     }
 };

@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\June_day;
 use App\Models\User;
+use App\Models\Client;
 
 class JuneDayComponent extends Component
 {
@@ -105,7 +106,7 @@ class JuneDayComponent extends Component
     public function loadDays()
     {
         $this->data = June_day::all();
-        $this->users = User::all();
+        $this->users = Client::all();
     }
 
     public function ClearList()
@@ -119,7 +120,7 @@ class JuneDayComponent extends Component
     public function render()
     {
         $data = June_day::all();
-        $users = User::all();
+        $users = Client::all();
         return view('livewire.june-day-component');
     }
 

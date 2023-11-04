@@ -144,7 +144,7 @@
                                     @csrf
                                     @method('PUT')
                                     <div style="display: flex; align-items: center; justify-content: center;">
-                                        <input type="number" name="day_{{ $day }}_user_id" value="{{ $row->{'day_'.$day} }}" placeholder="#{{ $row->{'day_'.$day.'_user_id'} }}" style="margin-right: 10px; width: 60px; padding: 5px;">
+                                        <input type="number" name="day_{{ $day }}_user_id" value="{{ $row->{'day_'.$day} }}" placeholder="{{ $row->{'day_'.$day.'_user_id'} }}" style="margin-right: 10px; width: 60px; padding: 5px;">
                                         <button class="btn btn-outline-light" type="submit" style="margin-right: 10px;"><i class="fa-solid fa-lock"></i></button>
                                     </div>
                                     <span class="fw-small font-monospace text-uppercase mx-2 text-white">{{ $users[$row->{'day_'.$day.'_user_id'}-1]->name ?? '' }}</span>
