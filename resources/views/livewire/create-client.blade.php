@@ -47,7 +47,13 @@
                 @error('email') <span class="text-danger fw-bold">{{ $message }}</span> @enderror
             </div>
 
-            <button type="submit" class="btn btn-dark">Save</button>
+            <div class="form-group">
+                <label for="telefono">Telefono:</label>
+                <input type="number" wire:model="telefono" class="form-control" id="telefono">
+                @error('telefono') <span class="text-danger fw-bold">{{ $message }}</span> @enderror
+            </div>
+
+            <button type="submit" class="btn btn-dark mt-2">Salva</button>
         </form>
     </div>
 </div>

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Factory as FakerFactory;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,11 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->categories();
         $this->articles();
         $this->rooms();
-        /* $this->roomsAugust();
-        $this->roomsSeptember();
-        $this->roomsJanuary(); */
-
         $this->roomsMonths();
+        $this->clients();
     }
 
     private function users()
@@ -440,5 +438,20 @@ class DatabaseSeeder extends Seeder
 
 
     }
+
+    public function clients()
+{
+    // Inizializza l'istanza di Faker
+    $faker = FakerFactory::create();
+
+    for ($i = 1; $i <= 5; $i++) {
+        \App\Models\Client::create([
+            'surname' => $faker->lastName,
+            'name' => $faker->firstName,
+            'email' => $faker->unique()->safeEmail,
+            'telefono' => $faker->phoneNumber,
+        ]);
+    }
+}
 
 }
