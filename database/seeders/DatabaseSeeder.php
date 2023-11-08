@@ -444,7 +444,7 @@ class DatabaseSeeder extends Seeder
     // Inizializza l'istanza di Faker
     $faker = FakerFactory::create();
 
-    for ($i = 1; $i <= 100; $i++) {
+    for ($i = 1; $i <= 10; $i++) {
         \App\Models\Client::create([
             'surname' => $faker->lastName,
             'name' => $faker->firstName,

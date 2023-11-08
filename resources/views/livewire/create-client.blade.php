@@ -3,9 +3,9 @@
 
         <div class="col-12">
             @if($client)
-            <h2>Edit client<i class="fa-solid fa-user"></i></h2>
+            <h2>Modifica Cliente<i class="fa-solid fa-user"></i></h2>
             @else
-            <h2>Add Client <i class="fa-solid fa-user"></i></h2>
+            <h2>Aggiungi Cliente <i class="fa-solid fa-user"></i></h2>
             @endif
         </div>
 

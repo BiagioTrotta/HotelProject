@@ -21,7 +21,7 @@
                 <div class="col-md-2 col-12 mb-3">
                     <label for="start_day" class="fw-bold ms-2">Init of interval:</label>
                     <select wire:model.defer="start_day" class="form-select">
-                        @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
+                        @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Giorno {{ $day }}</option>
                             @endfor
                     </select>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="col-md-2 col-12 mb-3">
                     <label for="end_day" class="fw-bold ms-2">End of interval:</label>
                     <select wire:model.defer="end_day" class="form-select">
-                        @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Day {{ $day }}</option>
+                        @for ($day = 1; $day <= 31; $day++) <option value="{{ $day }}">Giorno {{ $day }}</option>
                             @endfor
                     </select>
                 </div>
@@ -37,7 +37,7 @@
                 <div class="col-md-3 col-12 mb-3">
                     <label for="user_id" class="fw-bold ms-2">Select user:</label>
                     <select wire:model.defer="user_id" class="form-select">
-                        <option value="null" Select>Null</option>
+                        <option value = '' Select>Nessun Utente</option>
                         @foreach ($users as $user)
                         <option value="{{ $user->id }}">#{{ $user->id }} - {{ $user->name }}</option>
                         @endforeach
@@ -53,14 +53,6 @@
         <div style="color: green; background: lightgrey;">{{ session('success') }}</div>
         @endif
     </div>
-
-    @if ($showConfirmation)
-    <div class="alert alert-warning">
-        È già presente un utente per il giorno {{ $dayToReplace }}. Vuoi sostituirlo?
-        <button wire:click="replaceUser">Sì</button>
-        <button wire:click="cancelReplacement">No</button>
-    </div>
-@endif
 
 
     <!-- Primo piano -->

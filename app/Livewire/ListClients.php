@@ -33,10 +33,14 @@ class ListClients extends Component
     public function deleteClient($client_id)
     {
         $client = Client::find($client_id);
+        /* $client->user()->detach(); */
         $client->delete();
         session()->flash('success', 'User successfully delete');
         $this->loadClients();
-    }
+    }  
+
+
+    
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
