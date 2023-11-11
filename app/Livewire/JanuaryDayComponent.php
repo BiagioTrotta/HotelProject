@@ -93,6 +93,8 @@ class JanuaryDayComponent extends Component
         $this->loadDays();
     }
 
+    
+
     public function gestisciIntervalli3()
     {
         $this->validate();
@@ -114,6 +116,7 @@ class JanuaryDayComponent extends Component
 
         $this->loadDays();
     }
+
 
     public function gestisciIntervalli4()
     {

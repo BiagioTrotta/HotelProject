@@ -91,7 +91,8 @@
                                     </div>
                                     <span class="fw-small font-monospace text-uppercase mx-2 text-white">{{ $users[$row->{'day_'.$day.'_user_id'}-1]->name ?? '' }}</span>
                                 </form>
-                            </td>
+                            </td> 
+
 
                             @else
                             <td class="bg-light">
@@ -104,7 +105,8 @@
                                     </div>
                                     <span class="fw-bold text-uppercase mx-2">Nessun Cliente</span>
                                 </form>
-                            </td>
+                            </td> 
+                            
                             @endif
                             @endfor
                     </tr>
